@@ -17,14 +17,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class VetControllerTest {
 
-    VetController controller;
-    SpecialtyService specialtyService;
-    VetService service;
+    private VetController controller;
 
     @BeforeEach
     void setUp() {
-        specialtyService = new SpecialityMapService();
-        service = new VetMapService(specialtyService);
+        SpecialtyService specialtyService = new SpecialityMapService();
+        VetService service = new VetMapService(specialtyService);
         controller = new VetController(service);
 
         Vet vet1 = new Vet(1L, "joe", "buck", null);
